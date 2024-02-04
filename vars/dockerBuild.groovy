@@ -1,6 +1,6 @@
 //def call(String project, String ImageTag, String hubUser){
     
-def customImage = docker.build("${params.ImageName}:${params.ImageTag}")
+def call (customImage = docker.build("${params.ImageName}:${params.ImageTag}")){
 
 // Utilisez les credentials Docker Hub
 withCredentials([usernamePassword(credentialsId: params.DockerHubCredentialsId, usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
@@ -17,4 +17,5 @@ withCredentials([usernamePassword(credentialsId: params.DockerHubCredentialsId, 
 // Exécutez des commandes à l'intérieur du conteneur Docker (optionnel)
 customImage.inside {
     // ...
+  }
 }
