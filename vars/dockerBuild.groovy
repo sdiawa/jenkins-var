@@ -10,7 +10,8 @@
 def call(String ecr_repoName){
     
     sh """
-     docker build -t ${ecr_repoName} .
+
+     docker.build -t ${ecr_repoName} .
      docker tag ${ecr_repoName}:latest 
     """
 }
