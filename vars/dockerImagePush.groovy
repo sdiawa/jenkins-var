@@ -12,10 +12,7 @@ withCredentials([usernamePassword(credentialsId: params.DockerHubCredentialsId, 
     sh "docker push ${params.DockerHubUser}/${params.ImageName}:${params.ImageTag}"
 }
 
-// Exécutez des commandes à l'intérieur du conteneur Docker (optionnel)
-customImage.inside {
-    // ...
-  }
+
 }
 
 //def call(String aws_account_id, String region, String ecr_repoName){
