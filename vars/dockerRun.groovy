@@ -3,7 +3,7 @@ def call (){
 
     sh """
 
-    docker run -p ${params.PortApp} --name ${params.AppName} ${params.ImageName}:${params.ImageTag}
+    docker run -d --name ${params.AppName} -p ${params.PortApp} ${params.ImageName}:${params.ImageTag}
     
 
     """
